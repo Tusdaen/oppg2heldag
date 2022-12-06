@@ -1,5 +1,9 @@
+import csv
 import json
 import matplotlib.pyplot as plt
+import numpy as np
+import csv
+from pathlib import Path
 
 filnavn = "Siviltilstand.json"
 
@@ -40,18 +44,6 @@ plt.plot(aarstallListe, skilt, label="Skilt")
 plt.xticks(rotation=45)
 plt.legend()
 plt.show()
-
-import csv
-import json
-import matplotlib.pyplot as plt
-import numpy as np
-import csv
-from pathlib import Path
-
-filnavn = Path(__file__).parent / "sivilstand.json"
-
-with open(filnavn, encoding="utf-8") as fil:
-  data = json.load(fil)
 
 
 filnavnEn = Path(__file__).parent / "Befolkning.csv"
