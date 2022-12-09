@@ -111,7 +111,7 @@ for i in range(len(y2)):
 y1 = [int(x) for x in y1]
 y2 = [int(x) for x in y2]
 
-fig, ax = plt.subplots(figsize=(10,10))
+fig, ax = plt.subplots(figsize=(7,7))
 
 y = np.arange(13)
 
