@@ -111,13 +111,14 @@ for i in range(len(y2)):
 y1 = [int(x) for x in y1]
 y2 = [int(x) for x in y2]
 
-fig, ax = plt.subplots(figsize=(10,10))
+fig, ax = plt.subplots(figsize=(7,7))
 
 y = np.arange(13)
 
 ax.bar(y+0.2, y1, width=0.4, label=labely1)
 ax.bar(y-0.2, y2,width=0.4, label=labely2)
 ax.set_xticks(y,x)
+plt.title("Skilsmisse og ekteskap")
 ax.legend()
 
 plt.show()
