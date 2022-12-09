@@ -12,7 +12,7 @@ with open(filnavn, encoding="utf-8") as fil:
 
 aarstallListe = []
 for aarstall in data["dataset"]["dimension"]["Tid"]["category"]["index"]:
-    aarstallListe.append((aarstall))
+    aarstallListe.append(int(aarstall))
 #print(aarstallListe)
 
 ugift = []
@@ -43,6 +43,8 @@ plt.plot(aarstallListe, separert, label="Separert")
 plt.plot(aarstallListe, skilt, label="Skilt")
 plt.xticks(rotation=45)
 plt.legend()
+plt.ylim(0)
+plt.xlim(aarstallListe[1],aarstallListe[-1])
 plt.show()
 
 
@@ -55,14 +57,17 @@ with open(filnavnEn, encoding="utf-8-sig") as fil:
     filinnhold = csv.reader(fil, delimiter=";")
 
     overskrifter = next(filinnhold)
+    tomrad = next(filinnhold)
+    akseoverskrift = next(filinnhold)
     print(overskrifter)
 
     for rad in filinnhold:
-      aarstall.append(rad[0])
+      aarstall.append(int(rad[0]))
       befolkning.append(rad[1])
 
-plt.plot(aarstall, befolkning)
+plt.plot(aarstall, befolkning, label="Befolkning")
 plt.title("Befolkningsvekst fra 1769 til 2022")
+plt.legend()
 plt.show()
 
 
