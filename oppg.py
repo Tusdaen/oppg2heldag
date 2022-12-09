@@ -5,7 +5,7 @@ import numpy as np
 import csv
 from pathlib import Path
 
-filnavn = "Siviltilstand.json"
+filnavn = Path(__file__).parent / "Siviltilstand.json"
 
 with open(filnavn, encoding="utf-8") as fil:
     data = json.load(fil)
@@ -46,15 +46,16 @@ plt.legend()
 plt.show()
 
 
-filnavnEn = Path(__file__).parent / "Befolkning.csv"
+filnavn2 = Path(__file__).parent / "Befolkning.csv"
 
 aarstall = []
 befolkning = []
 
-with open(filnavnEn, encoding="utf-8-sig") as fil:
+with open(filnavn2, encoding="utf-8-sig") as fil:
     filinnhold = csv.reader(fil, delimiter=";")
-
+    
     overskrifter = next(filinnhold)
+    tomrad = next(filinnhold)
     print(overskrifter)
 
     for rad in filinnhold:
@@ -76,7 +77,8 @@ y2 = []
 with open(filnavn3, encoding="utf-8-sig") as fil:
     filinnhold = csv.reader(fil, delimiter=";")
     
-    overskrifter = next(filinnhold)
+    overskrifter3 = next(filinnhold)
+    ignorer = next(filinnhold)
     print(overskrifter)
 
     teller = 0
