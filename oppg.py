@@ -4,15 +4,20 @@ import matplotlib.pyplot as plt
 import numpy as np
 from pathlib import Path
 
+# Oppgave 2
+
+# Importerer json-filen
 filnavn = Path(__file__).parent / "Siviltilstand.json"
 
 with open(filnavn, encoding="utf-8") as fil:
     data = json.load(fil)
 
+# Legger årstall-verdiene i en liste
 aarstallListe = []
 for aarstall in data["dataset"]["dimension"]["Tid"]["category"]["index"]:
     aarstallListe.append(int(aarstall))
 
+# Lager liste til hver sivilstand og legger til verdiene fra filen 
 ugift = []
 gift = []
 enke = []
@@ -34,12 +39,15 @@ for i in range(126,168):
 for i in range(168,210):
     skilt.append(data["dataset"]["value"][i])
 
+# plotter de ulike grafene
 plt.plot(aarstallListe, ugift, label="Ugift")
 plt.plot(aarstallListe, gift, label="Gift")
 plt.plot(aarstallListe, enke, label="Enke/enkemann")
 plt.plot(aarstallListe, separert, label="Separert")
 plt.plot(aarstallListe, skilt, label="Skilt")
+# roterer x-akse-verdiene
 plt.xticks(rotation=45)
+# Bestemmer hvilken x-verdier som skal vises i grafen fra årstall
 plt.xlim(aarstallListe[1],aarstallListe[-1])
 
 #Oppgave 1 start
@@ -64,7 +72,7 @@ with open(filnavn2, encoding="utf-8-sig") as fil:
 
 #Plotter grafen
 plt.plot(aarstall, befolkning, label="Befolkning")
-plt.title("Befolkningsvekst og silviltilstand fra 1769 til 2022")
+plt.title("Befolkningsvekst og sivilstand fra 1769 til 2022")
 plt.legend()
 plt.xlabel(akseoverskrift[0])
 plt.ylim(0)
