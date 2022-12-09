@@ -118,6 +118,7 @@ y = np.arange(13)
 ax.bar(y+0.2, y1, width=0.4, label=labely1)
 ax.bar(y-0.2, y2,width=0.4, label=labely2)
 ax.set_xticks(y,x)
+plt.title("Skilsmisse og ekteskap")
 ax.legend()
 
 plt.show()
