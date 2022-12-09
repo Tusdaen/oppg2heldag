@@ -74,9 +74,12 @@ plt.show()
 #Oppg 4 start
 filnavn3 = Path(__file__).parent / "Skilsmisser og ekteskap.csv"
 
+#Her definerer jeg listene som skal brukes senere
 x = []
 y1 = []
 y2 = []
+
+#Denne delen leser grafen og legge verdiene inn i lister
 with open(filnavn3, encoding="utf-8-sig") as fil:
     filinnhold = csv.reader(fil, delimiter=";")
     
@@ -94,6 +97,7 @@ with open(filnavn3, encoding="utf-8-sig") as fil:
         y2 = rad
       teller += 1
 
+#Her tar jeg ut de første verdiene av hver liste fordi de ikke er verdier, men labels
 labelx = x[0]
 labely1 = y1[0]
 labely2 = y2[0]
@@ -101,6 +105,7 @@ x.pop(0)
 y1.pop(0)
 y2.pop(0)
 
+#Her gjør jeg om alle verdier som er ".." til 0. Programmet hadde blitt forvirret om jeg prøvde å inte ".." og jeg kan gjøre verdiene om til 0 fordi det er et bar diagram. Det betyr at 0 verdier bare ikke viser noe. Om det var en vanlig graf hadde en 0 verdi her ødelagt grafen.
 for i in range(len(y1)):
   if y1[i] == "..":
     y1[i] = "0"
@@ -108,9 +113,11 @@ for i in range(len(y2)):
   if y2[i] == "..":
     y2[i] = "0"
 
+#Her gjør jeg alle verdiene i listen til int
 y1 = [int(x) for x in y1]
 y2 = [int(x) for x in y2]
 
+#Dette lager og viser grafen
 fig, ax = plt.subplots(figsize=(7,7))
 
 y = np.arange(13)
