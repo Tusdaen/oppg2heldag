@@ -12,7 +12,6 @@ with open(filnavn, encoding="utf-8") as fil:
 aarstallListe = []
 for aarstall in data["dataset"]["dimension"]["Tid"]["category"]["index"]:
     aarstallListe.append(int(aarstall))
-#print(aarstallListe)
 
 ugift = []
 gift = []
@@ -41,10 +40,7 @@ plt.plot(aarstallListe, enke, label="Enke/enkemann")
 plt.plot(aarstallListe, separert, label="Separert")
 plt.plot(aarstallListe, skilt, label="Skilt")
 plt.xticks(rotation=45)
-#plt.legend()
 plt.xlim(aarstallListe[1],aarstallListe[-1])
-#plt.show()
-
 
 filnavn2 = Path(__file__).parent / "Befolkning.csv"
 
@@ -68,8 +64,6 @@ plt.title("Befolkningsvekst og silviltilstand fra 1769 til 2022")
 plt.legend()
 plt.ylim(0)
 plt.show()
-
-
 
 #Oppg 4 start
 filnavn3 = Path(__file__).parent / "Skilsmisser og ekteskap.csv"
