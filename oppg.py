@@ -42,6 +42,7 @@ plt.plot(aarstallListe, skilt, label="Skilt")
 plt.xticks(rotation=45)
 plt.xlim(aarstallListe[1],aarstallListe[-1])
 
+#Oppgave 1 start
 filnavn2 = Path(__file__).parent / "Befolkning.csv"
 
 aarstall = []
@@ -51,7 +52,9 @@ with open(filnavn2, encoding="utf-8-sig") as fil:
     filinnhold = csv.reader(fil, delimiter=";")
     
     overskrifter = next(filinnhold)
+  #Hopper over tom rad
     tomrad = next(filinnhold)
+  #Hopper over siste linje med tekst før verdiene
     akseoverskrift = next(filinnhold)
     print(overskrifter)
 
@@ -59,9 +62,11 @@ with open(filnavn2, encoding="utf-8-sig") as fil:
       aarstall.append(int(rad[0]))
       befolkning.append(int(rad[1]))
 
+#Plotter grafen
 plt.plot(aarstall, befolkning, label="Befolkning")
 plt.title("Befolkningsvekst og silviltilstand fra 1769 til 2022")
 plt.legend()
+plt.xlabel(akseoverskrift[0])
 plt.ylim(0)
 plt.show()
 
