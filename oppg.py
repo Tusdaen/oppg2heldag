@@ -41,10 +41,9 @@ plt.plot(aarstallListe, enke, label="Enke/enkemann")
 plt.plot(aarstallListe, separert, label="Separert")
 plt.plot(aarstallListe, skilt, label="Skilt")
 plt.xticks(rotation=45)
-plt.legend()
-plt.ylim(0)
+#plt.legend()
 plt.xlim(aarstallListe[1],aarstallListe[-1])
-plt.show()
+#plt.show()
 
 
 filnavn2 = Path(__file__).parent / "Befolkning.csv"
@@ -62,11 +61,12 @@ with open(filnavn2, encoding="utf-8-sig") as fil:
 
     for rad in filinnhold:
       aarstall.append(int(rad[0]))
-      befolkning.append(rad[1])
+      befolkning.append(int(rad[1]))
 
 plt.plot(aarstall, befolkning, label="Befolkning")
-plt.title("Befolkningsvekst fra 1769 til 2022")
+plt.title("Befolkningsvekst og silviltilstand fra 1769 til 2022")
 plt.legend()
+plt.ylim(0)
 plt.show()
 
 
