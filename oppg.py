@@ -2,10 +2,9 @@ import csv
 import json
 import matplotlib.pyplot as plt
 import numpy as np
-import csv
 from pathlib import Path
 
-filnavn = "Siviltilstand.json"
+filnavn = Path(__file__).parent / "Siviltilstand.json"
 
 with open(filnavn, encoding="utf-8") as fil:
     data = json.load(fil)
@@ -48,14 +47,14 @@ plt.xlim(aarstallListe[1],aarstallListe[-1])
 plt.show()
 
 
-filnavnEn = Path(__file__).parent / "Befolkning.csv"
+filnavn2 = Path(__file__).parent / "Befolkning.csv"
 
 aarstall = []
 befolkning = []
 
-with open(filnavnEn, encoding="utf-8-sig") as fil:
+with open(filnavn2, encoding="utf-8-sig") as fil:
     filinnhold = csv.reader(fil, delimiter=";")
-
+    
     overskrifter = next(filinnhold)
     tomrad = next(filinnhold)
     akseoverskrift = next(filinnhold)
@@ -81,7 +80,8 @@ y2 = []
 with open(filnavn3, encoding="utf-8-sig") as fil:
     filinnhold = csv.reader(fil, delimiter=";")
     
-    overskrifter = next(filinnhold)
+    overskrifter3 = next(filinnhold)
+    ignorer = next(filinnhold)
     print(overskrifter)
 
     teller = 0
